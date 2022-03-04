@@ -78,7 +78,7 @@ $ npm install
 
 - **Note**: Please ensure that you have MongoDB running on your local machine before running the below commands.
 
-- Before using or testing the application, you will need to set the database up and then seed it with the data, once you receive the prompt that seeding had complete, you will be able to interact with the API through http://localhost:3000 or http://127.0.0.1:3000 locally.
+- Before using or testing the application, you will need to set the database up and then seed it with the data, once you receive the prompt that seeding is complete, you will be able to interact with the API through http://localhost:3000 or http://127.0.0.1:3000 locally.
 
 ```
 $ npm run dev
