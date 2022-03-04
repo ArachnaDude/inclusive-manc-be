@@ -51,8 +51,8 @@ All other application dependencies are listed in the `package.json` file, FYI.
 - In your teminal CLI:
 
 ```
-$ git clone https://github.com/leekli/AccessApp-BE.git
-$ cd AccessApp-BE
+$ git clone https://github.com/ArachnaDude/inclusive-manc-be.git
+$ cd inclusive-manc-be
 ```
 
 ### **Installing dependencies:**
