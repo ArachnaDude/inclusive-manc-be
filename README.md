@@ -11,7 +11,7 @@
 ## **Back-End**
 
 - Back-end - Hosted version Link: https://accessapp-be.herokuapp.com/api/
-- Back-End - Git-Hub Repo Link: https://github.com/leekli/AccessApp-BE
+- Back-End - Git-Hub Repo Link: https://github.com/ArachnaDude/inclusive-manc-be
 
 ## **Front-End (For this Back-End API)**
 
