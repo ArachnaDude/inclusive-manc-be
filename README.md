@@ -15,8 +15,8 @@
 
 ## **Front-End (For this Back-End API)**
 
-- Front-End - Hosted version Link: https://github.com/MKD01/accessapp-fe
-- Front-End - Git-Hub Repo Link: https://inclusive-manchester.netlify.app/
+- Front-End - Hosted version Link: https://inclusive-manchester.netlify.app/
+- Front-End - Git-Hub Repo Link: https://github.com/ArachnaDude/inclusive-manc-fe
 
 ---
 
