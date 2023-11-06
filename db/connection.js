@@ -8,9 +8,13 @@ const manchesterData = require("./manchesterBigData.json");
 require("dotenv/config");
 
 if (process.env.NODE_ENV === "test") {
-  mongoose.connect(process.env.MONGODB_URL, { useNewUrlParser: true }, () => {
-    console.log("Now connected to the TEST database...");
-  });
+  mongoose.connect(
+    process.env.DB_CONNECTION_TEST,
+    { useNewUrlParser: true },
+    () => {
+      console.log("Now connected to the TEST database...");
+    }
+  );
 } else if (process.env.NODE_ENV === "development") {
   mongoose.connect(
     process.env.MONGODB_URL,
