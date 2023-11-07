@@ -17,6 +17,8 @@ require("dotenv/config");
 //   );
 // }
 
+console.log(`The value of the  URI is currently ${process.env.MONGODB_URI}`);
+
 if (process.env.NODE_ENV === "test") {
   (async () => {
     try {
