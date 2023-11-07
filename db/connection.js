@@ -7,18 +7,6 @@ const { devData, userDevData } = require("../db/seed-development.js");
 const manchesterData = require("./manchesterBigData.json");
 require("dotenv/config");
 
-// if (process.env.NODE_ENV === "test") {
-//   mongoose.connect(
-//     process.env.DB_CONNECTION_TEST,
-//     { useNewUrlParser: true },
-//     () => {
-//       console.log("Now connected to the TEST database...");
-//     }
-//   );
-// }
-
-console.log(`The value of the  URI is currently ${process.env.MONGODB_URI}`);
-
 if (process.env.NODE_ENV === "test") {
   (async () => {
     try {
