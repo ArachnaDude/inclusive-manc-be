@@ -10,7 +10,7 @@
 
 ## **Back-End**
 
-- Back-end - Hosted version Link: https://accessapp-be.herokuapp.com/api/
+- Back-end - Hosted version Link: https://inclusive-manc-be.onrender.com/api
 - Back-End - Git-Hub Repo Link: https://github.com/ArachnaDude/inclusive-manc-be
 
 ## **Front-End (For this Back-End API)**
@@ -35,7 +35,7 @@ There is a front-end app available for this API, which will allow you to interac
 ### **Installation requirements:**
 
 - Node.js 17.x
-- Mongoose 6.x
+- Mongoose 7.x
 - Express 4.x
 - Dotenv 16.x
 - Nodemon 2.x
