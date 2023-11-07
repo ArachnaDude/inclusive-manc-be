@@ -22,7 +22,7 @@ if (process.env.NODE_ENV === "test") {
     async () => {
       console.log("Now connected to the DEVELOPMENT database...");
 
-      await Users.deleteMany({});
+      await Users.deleteMany({}).maxTimeMS(15000);
       await Users.insertMany(userDevData);
       await AccessInfo.deleteMany({});
 
