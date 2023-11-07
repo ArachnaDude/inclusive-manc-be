@@ -49,7 +49,7 @@ if (process.env.NODE_ENV === "test") {
     async () => {
       console.log("Now connected to the PRODUCTION database...");
 
-      await Users.deleteMany({});
+      await Users.deleteMany({}).maxTimeMS(15000);
       await Users.insertMany(userDevData);
       await AccessInfo.collection.drop();
       await AccessInfo.deleteMany({});
