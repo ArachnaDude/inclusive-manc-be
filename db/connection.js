@@ -7,22 +7,36 @@ const { devData, userDevData } = require("../db/seed-development.js");
 const manchesterData = require("./manchesterBigData.json");
 require("dotenv/config");
 
+// if (process.env.NODE_ENV === "test") {
+//   mongoose.connect(
+//     process.env.DB_CONNECTION_TEST,
+//     { useNewUrlParser: true },
+//     () => {
+//       console.log("Now connected to the TEST database...");
+//     }
+//   );
+// }
+
 if (process.env.NODE_ENV === "test") {
-  mongoose.connect(
-    process.env.DB_CONNECTION_TEST,
-    { useNewUrlParser: true },
-    () => {
+  (async () => {
+    try {
+      await mongoose.connect(process.env.DB_CONNECTION_TEST, {
+        useNewUrlParser: true,
+      });
       console.log("Now connected to the TEST database...");
+    } catch (error) {
+      console.error("Error connecting to the TEST database:", error);
     }
-  );
+  })();
 } else if (process.env.NODE_ENV === "development") {
-  mongoose.connect(
-    process.env.MONGODB_URL,
-    { useNewUrlParser: true },
-    async () => {
+  (async () => {
+    try {
+      await mongoose.connect(process.env.MONGODB_URL, {
+        useNewUrlParser: true,
+      });
       console.log("Now connected to the DEVELOPMENT database...");
 
-      await Users.deleteMany({}).maxTimeMS(15000);
+      await Users.deleteMany({});
       await Users.insertMany(userDevData);
       await AccessInfo.deleteMany({});
 
@@ -40,16 +54,19 @@ if (process.env.NODE_ENV === "test") {
         });
       });
       console.log("Development database is now seeded.");
+    } catch (error) {
+      console.error("Error connecting to the DEVELOPMENT database:", error);
     }
-  );
+  })();
 } else if (process.env.NODE_ENV === "production") {
-  mongoose.connect(
-    process.env.MONGODB_URI,
-    { useNewUrlParser: true },
-    async () => {
+  (async () => {
+    try {
+      await mongoose.connect(process.env.MONGODB_URI, {
+        useNewUrlParser: true,
+      });
       console.log("Now connected to the PRODUCTION database...");
 
-      await Users.deleteMany({}).maxTimeMS(15000);
+      await Users.deleteMany({});
       await Users.insertMany(userDevData);
       await AccessInfo.collection.drop();
       await AccessInfo.deleteMany({});
@@ -69,6 +86,8 @@ if (process.env.NODE_ENV === "test") {
       });
 
       console.log("Production database is now seeded.");
+    } catch (error) {
+      console.error("Error connecting to the PRODUCTION database:", error);
     }
-  );
+  })();
 }
