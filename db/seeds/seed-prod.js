@@ -1,11 +1,14 @@
 // require in all necessary modules
-
 const mongoose = require("mongoose");
-const AccessInfo = require("../models/accessinfo.model.js");
-const Users = require("../models/users.model.js");
-const { userDevData } = require("../db/seed-development.js");
-const manchesterData = require("./manchesterBigData.json");
+const AccessInfo = require("../../models/accessinfo.model.js");
+const Users = require("../../models/users.model.js");
+const { userDevData } = require("../../db/seed-development.js");
+const manchesterData = require("../manchesterBigData.json");
 require("dotenv/config");
+
+// IMPORTANT
+// Before executing, make sure you're connected to the MongoDB cluster.
+// At last test, executing this script takes approximately 5 minutes.
 
 // This is an IIFE - immediately invoked function expression.
 // It runs as soon as the file is called.
@@ -22,9 +25,12 @@ require("dotenv/config");
     await AccessInfo.collection.drop();
     await AccessInfo.deleteMany({});
 
+    // As this standalone seed file needs to close the connection,
+    // the for of loop ensures that we're correctly awaiting
+    // the creation of each element before the connection closes
     let keyArray = manchesterData.features;
-    keyArray.forEach((element) => {
-      AccessInfo.create({
+    for (const element of keyArray) {
+      await AccessInfo.create({
         _id: element.id.match(/[0-9]+/g).join(""),
         osm_type: element.properties["@id"].match(/[a-zA-Z]+/g).join(""),
         name: element.properties["name"],
@@ -34,7 +40,7 @@ require("dotenv/config");
         equality_ratings: [],
         comments: [],
       });
-    });
+    }
 
     console.log("PRODUCTION database now seeded");
   } catch (error) {
@@ -42,6 +48,7 @@ require("dotenv/config");
   } finally {
     // The close being in the finally block ensures
     // that the connection closes no matter what
+    console.log("Closing connection");
     await mongoose.connection.close();
   }
 })();
