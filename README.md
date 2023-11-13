@@ -28,6 +28,8 @@ All endpoints can be found in the `endpoints.json` file or go to https://inclusi
 
 There is a front-end app available for this API, which will allow you to interact with it, available at: https://inclusive-manc-fe.netlify.app/
 
+**NB: The service that hosts the back-end deallocates resources after periods of inactivity. This can result in longer load times when you access the API or try to log in on the hosted front-end. Please be patient**
+
 ---
 
 # **Setup Instructions**
