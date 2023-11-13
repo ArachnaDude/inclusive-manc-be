@@ -56,26 +56,9 @@ if (process.env.NODE_ENV === "test") {
       });
       console.log("Now connected to the PRODUCTION database...");
 
-      // await Users.deleteMany({});
-      // await Users.insertMany(userDevData);
-      // await AccessInfo.collection.drop();
-      // await AccessInfo.deleteMany({});
-
-      // let keyArray = manchesterData.features;
-      // keyArray.forEach((element) => {
-      //   AccessInfo.create({
-      //     _id: element.id.match(/[0-9]+/g).join(""),
-      //     osm_type: element.properties["@id"].match(/[a-zA-Z]+/g).join(""),
-      //     name: element.properties["name"],
-      //     lat: element.geometry.coordinates,
-      //     accessibility_ratings: [],
-      //     attitude_ratings: [],
-      //     equality_ratings: [],
-      //     comments: [],
-      //   });
-      // });
-
-      // console.log("Production database is now seeded.");
+      // Seeding logic abstracted to seed-prod.js.
+      // If you need to re-seed production database, use:
+      // $ npm run seed-prod
     } catch (error) {
       console.error("Error connecting to the PRODUCTION database:", error);
     }
